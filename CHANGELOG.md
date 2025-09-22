@@ -1,6 +1,19 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v0.2.2 (2025-09-22)
+
+### 🩹 Patch
+
+  * ⚡️ Use data `vault_namespace` to ensure namespace exists (!5) by Romain Deville ([`8b6aebf`](https://framagit.org/rdeville-public/opentofu/openbao-identity/-/commit/8b6aebfd8ee6179ebe6ae85ecdc6dbd20cfc57c1))
+  * ⚡️ Use data `vault_namespace` to ensure namespace exists by Romain Deville ([`64bc889`](https://framagit.org/rdeville-public/opentofu/openbao-identity/-/commit/64bc88947a6d89764cb1aff56e5f57c1c1f1a318)) 🔏
+  * ⚡️(auth_userpass): Use data `vault_namespace` to ensure namespace exists by Romain Deville ([`7e9579c`](https://framagit.org/rdeville-public/opentofu/openbao-identity/-/commit/7e9579c97dfb7d477b34a2613e906a1a6205a2a4)) 🔏
+
+### 🔊 Others
+
+  * 📝 Update README with info about policies and generated from terraform-docs by Romain Deville ([`fee4dd7`](https://framagit.org/rdeville-public/opentofu/openbao-identity/-/commit/fee4dd78d04003cb71220e39b0b7f6aa78b7304c)) 🔏
+  * 📝(auth_userpass): Update README with terraform-docs by Romain Deville ([`8ff2a3f`](https://framagit.org/rdeville-public/opentofu/openbao-identity/-/commit/8ff2a3f5b007d01f06034b110736df590829f12b)) 🔏
+
 ## v0.2.1 (2025-09-22)
 
 ### 🩹 Patch
