@@ -44,6 +44,24 @@ Deployment and management of Identity, Aliases and Auth Backend
 
 ## 🚀 Usage
 
+### ℹ️ Identity Entity Policies
+
+I consider individual identity entity should not have any policies attached
+individually.
+
+**So, policies for identity entities are hardcoded and set to an empty list to
+ensure this behaviour by design.**
+
+I you want to manage policies per identity, feel free to fork this project and
+add variables definition and update the module accordingly.
+
+Identity entity should belong to a group holding policies.
+
+For instance, this can be achieve using my other openbao modules:
+
+- [OpenBao Policies](https://framagit.org/rdeville-public/opentofu/openbao-policies.git)
+- [OpenBao Group](https://framagit.org/rdeville-public/opentofu/openbao-group.git)
+
 ### ⚠️ Prerequisite
 
 To deploy resources, the identity defined in the provider configuration must
@@ -167,6 +185,11 @@ module "identity" {
 * [vault](https://search.opentofu.org/provider/hashicorp/vault/):
   `~>5.3`
 
+### Data Sources
+
+* [data.vault_namespace.this](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/data-sources/namespace)
+  > If specified, ensure namespace exists
+
 ### Resources
 
 * [resource.vault_identity_entity.this](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/identity_entity)
@@ -219,14 +242,14 @@ string
 
 #### Optional Inputs
 
-* [namespace](#namespace)
+* [namespace_path](#namespace_path)
 * [disabled](#disabled)
 * [metadata](#metadata)
 * [auth_userpass](#auth_userpass)
 * [auth_userpass_user](#auth_userpass_user)
 
 
-##### `namespace`
+##### `namespace_path`
 
 Namespace where to deploy the identity if not the namespace set in the
 provider.

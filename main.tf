@@ -1,5 +1,5 @@
 resource "vault_identity_entity" "this" {
-  namespace = var.namespace
+  namespace = try(data.vault_namespace.this[0].path, null)
 
   name     = var.name
   disabled = var.disabled
@@ -9,13 +9,15 @@ resource "vault_identity_entity" "this" {
     },
     var.metadata
   ]...)
+
+  policies = []
 }
 
 # Manage auth userpass associated to the identity
 module "vault_auth_userpass" {
-  source    = "./modules/auth_userpass"
-  count     = var.auth_userpass_user == null ? 0 : 1
-  namespace = var.namespace
+  source         = "./modules/auth_userpass"
+  count          = var.auth_userpass_user == null ? 0 : 1
+  namespace_path = try(data.vault_namespace.this[0].path, null)
 
   username = (
     var.auth_userpass_user.username != null

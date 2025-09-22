@@ -23,6 +23,8 @@
 
 * [data.vault_auth_backend.this](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/data-sources/auth_backend)
   > Ensure auth userpass backend exists
+* [data.vault_namespace.this](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/data-sources/namespace)
+  > If specified, ensure namespace exists
 
 ### Resources
 
@@ -123,13 +125,13 @@ string
 
 #### Optional Inputs
 
-* [namespace](#namespace)
+* [namespace_path](#namespace_path)
 * [alias_name](#alias_name)
 
 
-##### `namespace`
+##### `namespace_path`
 
-Namespace where to deploy the identity if not the namespace set in the
+Namespace path where to deploy the identity if not the namespace set in the
 provider.
 
 <details style="width: 100%;display: inline-block">
