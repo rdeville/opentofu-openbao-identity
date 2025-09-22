@@ -116,6 +116,35 @@ module "identity" {
 }
 ```
 
+### Deploy a user in auth userpass backend
+
+Deployment of a user in auth userpass backend will automatically alias it to the
+identity. This is done by the submodule
+[modules/auth_userpass](./modules/auth_userpass/READ).
+
+```hcl
+module "identity" {
+  source = "git::https://framagit.org/rdeville-public/opentofu/openbao-identity.git"
+
+  # Required variables
+  name  = "foo"
+  email = "foo@domain.tld"
+
+  # Example values
+  namespace = "bar"
+  auth_userpass_user = {
+    # If username and alias_name below is not specify, will use identity name
+    username = "another-user"
+    alias_name = "foo-user-pass"
+    password = "[REDACTED]"
+  }
+  auth_userpass = {
+    mount_accessor = "auth_userpass_12345678"
+    path           = "userpass"
+  }
+}
+```
+
 <!-- BEGIN TF-DOCS -->
 ## ⚙️ Module Content
 
@@ -125,6 +154,7 @@ module "identity" {
 
 * [Requirements](#requirements)
 * [Resources](#resources)
+* [Modules](#modules)
 * [Inputs](#inputs)
   * [Required Inputs](#required-inputs)
   * [Optional Inputs](#optional-inputs)
@@ -140,7 +170,12 @@ module "identity" {
 ### Resources
 
 * [resource.vault_identity_entity.this](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/identity_entity)
-  > Manage identity
+  >
+
+### Modules
+
+* [vault_auth_userpass](./modules/auth_userpass)
+  > Manage auth userpass associated to the identity
 
 <!-- markdownlint-capture -->
 ### Inputs
@@ -185,8 +220,10 @@ string
 #### Optional Inputs
 
 * [namespace](#namespace)
-* [metadata](#metadata)
 * [disabled](#disabled)
+* [metadata](#metadata)
+* [auth_userpass](#auth_userpass)
+* [auth_userpass_user](#auth_userpass_user)
 
 
 ##### `namespace`
@@ -210,6 +247,30 @@ provider.
 
   ```hcl
   null
+  ```
+
+  </div>
+</details>
+
+##### `disabled`
+
+Boolean to disable the identity
+<details style="width: 100%;display: inline-block">
+  <summary>Type & Default</summary>
+  <div style="height: 1em"></div>
+  <div style="width:64%; float:left;">
+  <p style="border-bottom: 1px solid #333333;">Type</p>
+
+  ```hcl
+  bool
+  ```
+
+  </div>
+  <div style="width:34%;float:right;">
+  <p style="border-bottom: 1px solid #333333;">Default</p>
+
+  ```hcl
+  false
   ```
 
   </div>
@@ -240,9 +301,15 @@ Map of string to add additional metadata to set for the identity
   </div>
 </details>
 
-##### `disabled`
+##### `auth_userpass`
 
-Boolean to disable the identity
+Object describing auth userpass backend to use to deploy the user associated
+to the entity, supporting following attributes:
+* `mount_accessor`: String, accessor of the mount to which the alias of the
+  user created should belong to.
+* `path`: String, the path of the userpass authentication backend to use. The
+  auth userpass backend must exists.
+
 <details style="width: 100%;display: inline-block">
   <summary>Type & Default</summary>
   <div style="height: 1em"></div>
@@ -250,7 +317,10 @@ Boolean to disable the identity
   <p style="border-bottom: 1px solid #333333;">Type</p>
 
   ```hcl
-  bool
+  object({
+    mount_accessor = string
+    path           = string
+  })
   ```
 
   </div>
@@ -258,7 +328,43 @@ Boolean to disable the identity
   <p style="border-bottom: 1px solid #333333;">Default</p>
 
   ```hcl
-  false
+  null
+  ```
+
+  </div>
+</details>
+
+##### `auth_userpass_user`
+
+Object to create an auth userpass entry for the identity. Will be set as an
+alias for the identity.
+The object support following attributes:
+* `username`: String, optional, username to set for the auth userpass backend,
+  if not set, will use the name of the identity.
+* `password`: String, sensitive, the password to set for the user.
+* `alias_name`: String, optional, name of the alias to set for the identity.
+  If not defined, will use the `username`.
+
+<details style="width: 100%;display: inline-block">
+  <summary>Type & Default</summary>
+  <div style="height: 1em"></div>
+  <div style="width:64%; float:left;">
+  <p style="border-bottom: 1px solid #333333;">Type</p>
+
+  ```hcl
+  object({
+    alias_name = optional(string, null)
+    username   = optional(string, null)
+    password   = string
+  })
+  ```
+
+  </div>
+  <div style="width:34%;float:right;">
+  <p style="border-bottom: 1px solid #333333;">Default</p>
+
+  ```hcl
+  null
   ```
 
   </div>
@@ -269,6 +375,12 @@ Boolean to disable the identity
 
 * `identity`:
   The deployed identity
+* `auth_userpass_username`:
+  The deployed username in an auth userpass backend
+* `auth_userpass_id`:
+  The deployed username in an auth userpass backend
+* `auth_userpass_password`:
+  The deployed username in an auth userpass backend
 
 </details>
 
