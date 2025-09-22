@@ -1,4 +1,3 @@
-# Manage identity
 resource "vault_identity_entity" "this" {
   namespace = var.namespace
 
@@ -10,4 +9,23 @@ resource "vault_identity_entity" "this" {
     },
     var.metadata
   ]...)
+}
+
+# Manage auth userpass associated to the identity
+module "vault_auth_userpass" {
+  source    = "./modules/auth_userpass"
+  count     = var.auth_userpass_user == null ? 0 : 1
+  namespace = var.namespace
+
+  username = (
+    var.auth_userpass_user.username != null
+    ? var.auth_userpass_user.username
+    : vault_identity_entity.this.name
+  )
+  password   = var.auth_userpass_user.password
+  alias_name = var.auth_userpass_user.alias_name
+
+  auth_path      = var.auth_userpass.path
+  mount_accessor = var.auth_userpass.mount_accessor
+  canonical_id   = vault_identity_entity.this.id
 }
