@@ -1,6 +1,17 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v0.2.1 (2025-09-22)
+
+### 🩹 Patch
+
+  * ⚡️(auth_userpass): Add data to ensure auth userpass backend already exists (!4) by Romain Deville ([`4441c5b`](https://framagit.org/rdeville-public/opentofu/openbao-identity/-/commit/4441c5ba2e0cf30f34193e6d051c2577934115db))
+  * ⚡️(auth_userpass): Add data to ensure auth userpass backend already exists by Romain Deville ([`7017937`](https://framagit.org/rdeville-public/opentofu/openbao-identity/-/commit/7017937320736eba85f6bbdda651939f3aefa449)) 🔏
+
+### 🔊 Others
+
+  * 📝(auth_userpass): Update README with terraform-docs by Romain Deville ([`ff2b022`](https://framagit.org/rdeville-public/opentofu/openbao-identity/-/commit/ff2b022adc1b59ab75fe31e549ca26945416a692)) 🔏
+
 ## v0.2.0 (2025-09-22)
 
 ### ✨ Minor
