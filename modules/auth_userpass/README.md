@@ -19,6 +19,11 @@
 * [vault](https://search.opentofu.org/provider/hashicorp/vault/):
   `~>5.3`
 
+### Data Sources
+
+* [data.vault_auth_backend.this](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/data-sources/auth_backend)
+  > Ensure auth userpass backend exists
+
 ### Resources
 
 * [resource.vault_generic_endpoint.this](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/generic_endpoint)
