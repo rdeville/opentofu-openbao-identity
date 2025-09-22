@@ -1,6 +1,22 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v0.2.0 (2025-09-22)
+
+### ✨ Minor
+
+  * ✨ Add submodule to deploy alias in auth userpass backend (!3) by Romain Deville ([`f0e1a68`](https://framagit.org/rdeville-public/opentofu/openbao-identity/-/commit/f0e1a6873f15158fcb78e59d084a1918af995437))
+  * ✨ Integrate submodule auth_userpass to the main module by Romain Deville ([`286df4d`](https://framagit.org/rdeville-public/opentofu/openbao-identity/-/commit/286df4d0986c77be3eba1ab2b67f127c417b9e65)) 🔏
+  * ✨(modules): Add submodule auth_userpass to deploy user with userpass backend by Romain Deville ([`9df2985`](https://framagit.org/rdeville-public/opentofu/openbao-identity/-/commit/9df2985c4730c93d806e390404053ebddcb957e0)) 🔏
+
+### 🩹 Patch
+
+  * 🔧 Update terraform-docs to be recursive by Romain Deville ([`655f061`](https://framagit.org/rdeville-public/opentofu/openbao-identity/-/commit/655f0619b6d499ee59645bfcdb9485855d8284c1)) 🔏
+
+### 🔊 Others
+
+  * 📝 Update README with desc and generated from tf-docs by Romain Deville ([`8c9a863`](https://framagit.org/rdeville-public/opentofu/openbao-identity/-/commit/8c9a863455e74571c7c52cbee100f5e4066eab41)) 🔏
+
 ## v0.1.0 (2025-09-22)
 
 ### ✨ Minor
