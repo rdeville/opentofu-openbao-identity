@@ -1,6 +1,17 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v0.1.0 (2025-09-22)
+
+### ✨ Minor
+
+  * ✨ Add deployment of an identity (!2) by Romain Deville ([`43b0d46`](https://framagit.org/rdeville-public/opentofu/openbao-identity/-/commit/43b0d46a09dd7f4819dfb5fef4372523a6603166))
+  * ✨ Add deployment of an identity by Romain Deville ([`cf3e49f`](https://framagit.org/rdeville-public/opentofu/openbao-identity/-/commit/cf3e49f0cfa61a209472541998cadf2bff8f441b))
+
+### 🔊 Others
+
+  * 📝 Update README generated from tf-docs and with usage examples by Romain Deville ([`9ce8113`](https://framagit.org/rdeville-public/opentofu/openbao-identity/-/commit/9ce81139e2fb88c73512b8ceb5c7f36da7a6f876))
+
 ## v0.0.1 (2025-09-22)
 
 ### 🩹 Patch
