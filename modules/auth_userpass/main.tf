@@ -2,7 +2,7 @@
 resource "vault_generic_endpoint" "this" {
   namespace = var.namespace
 
-  path                 = "auth/${var.auth_path}/users/${var.username}"
+  path                 = "auth/${data.vault_auth_backend.this}/users/${var.username}"
   ignore_absent_fields = true
 
   data_json = jsonencode({
