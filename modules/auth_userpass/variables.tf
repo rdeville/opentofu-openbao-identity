@@ -1,9 +1,9 @@
 # Module Specific variables
 # -----------------------------------------------------------------------------
-variable "namespace" {
+variable "namespace_path" {
   type        = string
   description = <<-EOM
-  Namespace where to deploy the identity if not the namespace set in the
+  Namespace path where to deploy the identity if not the namespace set in the
   provider.
   EOM
 
