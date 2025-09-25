@@ -1,3 +1,4 @@
+# Manage individual entities
 resource "vault_identity_entity" "this" {
   namespace = try(data.vault_namespace.this[0].path, null)
 
@@ -10,7 +11,17 @@ resource "vault_identity_entity" "this" {
     var.metadata
   ]...)
 
-  policies = []
+  external_policies = true
+  policies          = toset([])
+}
+
+# Set exclusive epmpty policy to ensure policies are set at group level
+resource "vault_identity_entity_policies" "policies" {
+  namespace = try(data.vault_namespace.this[0].path, null)
+
+  policies  = [""]
+  exclusive = true
+  entity_id = vault_identity_entity.this.id
 }
 
 # Manage auth userpass associated to the identity
