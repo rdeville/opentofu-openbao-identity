@@ -1,3 +1,4 @@
+# Manage individual entities
 resource "vault_identity_entity" "this" {
   namespace = try(data.vault_namespace.this[0].path, null)
 
