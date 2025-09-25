@@ -1,6 +1,18 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v0.2.3 (2025-09-25)
+
+### 🩹 Patch
+
+  * ⚡️ Add resource to enforce empty policies for individual entities (!6) by Romain Deville ([`74041f7`](https://framagit.org/rdeville-public/opentofu/openbao-identity/-/commit/74041f71e0197176d53011fe8dd25b3499a885b1))
+  * ⚡️ Add resource to ensure empty policies for individual entities by Romain Deville ([`57d42e0`](https://framagit.org/rdeville-public/opentofu/openbao-identity/-/commit/57d42e0678291061858e0ac3800cd1e3a7d3da41)) 🔏
+
+### 🔊 Others
+
+  * 💡 Add missing comment for terraform-docs by Romain Deville ([`d16a2ef`](https://framagit.org/rdeville-public/opentofu/openbao-identity/-/commit/d16a2efd94082cf60d467b387bfc2d8a061da4e7)) 🔏
+  * 📝 Update README generated from tf-docs by Romain Deville ([`d8d01c9`](https://framagit.org/rdeville-public/opentofu/openbao-identity/-/commit/d8d01c9d5e300b31788b74fa5eff0d14175b94f6)) 🔏
+
 ## v0.2.2 (2025-09-22)
 
 ### 🩹 Patch
