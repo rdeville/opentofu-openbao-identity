@@ -193,7 +193,9 @@ module "identity" {
 ### Resources
 
 * [resource.vault_identity_entity.this](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/identity_entity)
-  >
+  > Manage individual entities
+* [resource.vault_identity_entity_policies.policies](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/identity_entity_policies)
+  > Set exclusive epmpty policy to ensure policies are set at group level
 
 ### Modules
 
