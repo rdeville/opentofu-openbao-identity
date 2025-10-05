@@ -1,6 +1,20 @@
 <!-- markdownlint-disable-file -->
 # CHANGELOG
 
+## v0.2.4 (2025-10-05)
+
+### 🩹 Patch
+
+  * 🐛 Remove use of data to avoid concurrency (!7) by Romain Deville ([`7645615`](https://framagit.org/rdeville-public/opentofu/openbao-identity/-/commit/7645615ed9d6aea0477430f36637162b51faa326))
+  * 🐛 Set policy to empty set to ensure declared at group level by Romain Deville ([`f8f7a9b`](https://framagit.org/rdeville-public/opentofu/openbao-identity/-/commit/f8f7a9bc4f88419a21ea1e461c4af472f423be6b)) 🔏
+  * 🐛 Remove use of data to avoid concurrency by Romain Deville ([`81bfb5a`](https://framagit.org/rdeville-public/opentofu/openbao-identity/-/commit/81bfb5a0e82de0e58524bf05f0e773bb61173d54)) 🔏
+  * 🐛(module/auth_userpass): Remove use of data to avoid concurrency by Romain Deville ([`078ac3e`](https://framagit.org/rdeville-public/opentofu/openbao-identity/-/commit/078ac3ee7aea9c2a72724449dc2b6c7a03c33cd8)) 🔏
+
+### 🔊 Others
+
+  * 📝(modules/auth_userpass): Update README from tf-docs by Romain Deville ([`6f1ae6f`](https://framagit.org/rdeville-public/opentofu/openbao-identity/-/commit/6f1ae6fff6fe45c348ed02bf875b4f349198cd13)) 🔏
+  * 📝 Update README from tf-docs by Romain Deville ([`6c82ad1`](https://framagit.org/rdeville-public/opentofu/openbao-identity/-/commit/6c82ad1d7d9d7540e83e97ace991652fe0a838b1)) 🔏
+
 ## v0.2.3 (2025-09-25)
 
 ### 🩹 Patch
