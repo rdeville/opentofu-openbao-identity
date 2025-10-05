@@ -1,8 +1,8 @@
 # Create user using generic endpoint
 resource "vault_generic_endpoint" "this" {
-  namespace = try(data.vault_namespace.this[0].path, null)
+  namespace = var.namespace_path
 
-  path                 = "auth/${data.vault_auth_backend.this.path}/users/${var.username}"
+  path                 = "auth/${var.auth_path}/users/${var.username}"
   ignore_absent_fields = true
 
   data_json = jsonencode({
@@ -12,7 +12,7 @@ resource "vault_generic_endpoint" "this" {
 
 # Associate auth userpass user as alias to identity
 resource "vault_identity_entity_alias" "this" {
-  namespace = try(data.vault_namespace.this[0].path, null)
+  namespace = var.namespace_path
 
   name = (
     var.alias_name != null
