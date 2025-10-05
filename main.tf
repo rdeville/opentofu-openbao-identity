@@ -12,14 +12,14 @@ resource "vault_identity_entity" "this" {
   ]...)
 
   external_policies = true
-  policies          = toset([])
+  policies          = []
 }
 
 # Set exclusive epmpty policy to ensure policies are set at group level
 resource "vault_identity_entity_policies" "policies" {
   namespace = var.namespace_path
 
-  policies  = [""]
+  policies  = []
   exclusive = true
   entity_id = vault_identity_entity.this.id
 }
