@@ -185,11 +185,6 @@ module "identity" {
 * [vault](https://search.opentofu.org/provider/hashicorp/vault/):
   `~>5.3`
 
-### Data Sources
-
-* [data.vault_namespace.this](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/data-sources/namespace)
-  > If specified, ensure namespace exists
-
 ### Resources
 
 * [resource.vault_identity_entity.this](https://registry.terraform.io/providers/hashicorp/vault/latest/docs/resources/identity_entity)
